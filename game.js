@@ -2,8 +2,7 @@ const buttonColours = ["red", "blue", "green", "yellow"];
 let randomChosenColour = "";
 let gamePattern = [];
 nextSequence()
-nextSequence()
-nextSequence()
+
 
 console.log(gamePattern)
 
@@ -16,7 +15,8 @@ function nextSequence() {
   gamePattern.push(randomChosenColour);
 
 
-  $(`#${randomChosenColour}`).animate({ backgroundColor: 'yellow' }, 500);
-
+  $(`#${randomChosenColour}`).fadeOut(100).fadeIn(100);
+  var audio = new AudioContext("sounds/" + randomChosenColour + ".mp3");
+  audio.resume();
+  audio.play();
 }
-
