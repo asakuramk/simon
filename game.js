@@ -16,9 +16,7 @@ function nextSequence() {
   gamePattern.push(randomChosenColour);
 
 
-  $(`#${randomChosenColour}`).animate({ backgroundColor: 'yellow' }, 1000);
-
-
+  $(`#${randomChosenColour}`).animate({ backgroundColor: 'yellow' }, 500);
 
 }
 
