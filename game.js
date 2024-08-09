@@ -2,9 +2,19 @@ const buttonColours = ["red", "blue", "green", "yellow"];
 let randomChosenColour = "";
 let gamePattern = [];
 let userClickedPattern = [];
+let level = 0;
+var isStarted = false;
+
+$(document).on("keyup", function () {
+  if (!isStarted) {
+    isStarted = true;
+    $("h1").text("Level 0")
+    nextSequence();
+  }
 
 
-// nextSequence();
+})
+
 
 $('.btn').on("click", function handler() {
   let userChosenColour = "";
@@ -12,12 +22,13 @@ $('.btn').on("click", function handler() {
   userClickedPattern.push(userChosenColour);
   playSound(userChosenColour);
   animatePress(userChosenColour);
-  // alert(userChosenColour)
-  // console.log(userClickedPattern);
+
 });
 
 
 function nextSequence() {
+  level += 1;
+  $("h1").text("level " + level)
   const randomNumber = Math.ceil(Math.random() * 3)
   randomChosenColour = buttonColours[randomNumber];
 
